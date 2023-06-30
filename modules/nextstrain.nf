@@ -30,6 +30,34 @@ process build {
   """
 }
 
+process build_config {
+  label 'nextstrain'
+  publishDir "${params.outdir}", mode: 'copy'
+  input: tuple val(pathogen_giturl), path(sequences), path(metadata), path(config_yaml)
+  output: path("auspice")
+  script:
+  """
+  #! /usr/bin/env bash
+  # Example pathogen_giturl https://github.com/nextstrain/zika
+  wget -O pathogen.zip ${pathogen_giturl}
+  INDIR=`unzip -Z1 pathogen.zip | head -n1 | sed 's:/::g'`
+  unzip pathogen.zip
+
+  mkdir \$INDIR/data
+
+  cp ${sequences} \${INDIR}/data/.
+  cp ${metadata} \${INDIR}/data/.
+
+  nextstrain build \
+    --cpus $task.cpus \
+    --native \
+    \$INDIR \
+    --configfile $config_yaml
+
+  mv \${INDIR}/auspice .
+  """
+}
+
 process deploy {
   label 'nextstrain'
   publishDir "${params.outdir}", mode: 'copy'
