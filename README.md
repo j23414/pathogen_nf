@@ -33,8 +33,8 @@ nextstrain view results/auspice
 | tb | https://github.com/nextstrain/tb/archive/refs/heads/master.zip | |
 | mumps | https://github.com/nextstrain/mumps/archive/refs/heads/master.zip | |
 | yellow fever | https://github.com/nextstrain/yellow-fever/archive/refs/heads/master.zip | |
-| lassa | https://github.com/nextstrain/lassa/archive/refs/heads/master.zip | |
-| measles | https://github.com/nextstrain/measles/archive/refs/heads/main.zip | |
+| lassa | https://github.com/nextstrain/lassa/archive/refs/heads/consistent_inputs.zip | No metadata, only has lassa_l.fasta, lassa_s.fasta, and still hits multiple file problems |
+| measles | https://github.com/nextstrain/measles/archive/refs/heads/main.zip | Yes |
 | avian-flu | https://github.com/nextstrain/avian-flu/archive/refs/heads/master.zip | |
 | enterovirus d68 | https://github.com/nextstrain/enterovirus_d68/archive/refs/heads/master.zip | |
 | ncov | https://github.com/nextstrain/ncov/archive/refs/heads/master.zip | |
